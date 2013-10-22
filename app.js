@@ -30,7 +30,7 @@ var Applicant = mongoose.model('Applicant',{
 	bio: String,
 	skills: String,
 	years: Number,
-	why: String
+	why: String,
 });  	
 
 // development only
@@ -56,19 +56,21 @@ app.get('/applicants', function(req, res){
 
 // creates and applicant
 app.post('/applicant', function(req, res){
-	// Here is where you need to get the data
-	// from the post body and store it
 	var submitInfo = req.body
 	console.log(submitInfo);
 	console.log('hi from app.post');
 	var applicant = new Applicant(submitInfo);
 	applicant.save();
 	res.send({success : 'Success!'});	
-	
 });
 
+app.post('/appdelete', function (req, res){
+	var deleted = req.body;
+	
+	console.log(deleted);
+	Applicant.findByIdAndRemove({id : deleted });
 
-
+})
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));

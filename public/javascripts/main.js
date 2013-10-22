@@ -11,4 +11,13 @@ $(function(){
 				}
 		});
 	});
+
+	$(document).on('click', '.delete', function(){
+		var id = $(this).attr('data-uID');
+		console.log(id);
+		$.post('/appdelete', {_id :  id}, function(data){
+			console.log('hi');
+			console.log(data);
+		});
+	});
 });
