@@ -1,0 +1,16 @@
+body {
+  font: 14px "Helvetica-Neue", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+ul{
+	font-size: 24px;
+}
+
+li{
+	font-size: 12px;
+	margin-left: 20px;
+}

@@ -1,0 +1,25 @@
+extends layout
+
+block content
+	.container
+		h1 Application for Senior Web Developer at Omega 3 Studios
+
+		form#application-form(action="/submitapplication", method="post")
+			.form-group
+				input.form-control(name="name", type="text", placeholder="Name")
+			.form-group
+				textarea.form-control(name="bio",rows="5", placeholder="Bio")
+			.form-group
+				textarea.form-control(name="skills",rows="3", placeholder="Skills (seperated by commas)")
+			.form-group
+				input.form-control(name="years", type="number", placeholder="Years of experience")
+			.form-group
+				textarea.form-control(name="why", rows="5",placeholder="Why do you want to work here?")
+			.form-group
+				input.btn.btn-default.submit-btn(type="submit")
+		
+		#success-message.alert.alert-success.hidden
+			| Application submitted!
+
+	script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+	script(src="/javascripts/main.js")		
