@@ -78,10 +78,17 @@ app.post('/appdelete', function (req, res){
 });
 
 //application renderer
-app.get('/:_.id', function (req, res){
-	
-	res.render('applicationview', {})
-})
+app.get('/:_id', function (req, res){
+	console.log(req.params._id);
+	var urlId = req.params._id;
+	Applicant.findById(urlId, function (err, applicant){
+		if(err){res.send('ERROR!')}
+		else{
+			console.log(applicant);
+			res.render('applicationview', applicant)
+		}
+	});
+});
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
