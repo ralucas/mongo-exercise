@@ -14,10 +14,11 @@ $(function(){
 
 	$(document).on('click', '.delete', function(){
 		var id = $(this).attr('data-uID');
-		console.log(id);
+		var $that = $(this);
 		$.post('/appdelete', {_id :  id}, function(data){
-			console.log('hi');
-			console.log(data);
+			if(data['success']){
+				$that.parent().remove();
+			}
 		});
 	});
 });

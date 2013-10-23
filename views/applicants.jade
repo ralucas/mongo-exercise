@@ -2,11 +2,13 @@ extends layout
 
 block content
 	.container
-		h1 Applicants
+		h1 Solicitantes
 		each val in applicants
 			ul#applications Nombre: #{val.name}
-				li Biographias: #{val.bio}
-				li Skillas: #{val.skills}
+				li Biografia: #{val.bio}
+				li Habilidades: #{val.skills}
 				li Anos: #{val.years}
-				li Porque: #{val.why}
+				li Por que: #{val.why}
+				li
+					a(href="/#{val._id}") Applicant Site
 				button.btn.btn-danger.btn-xs.delete(data-uID='#{val._id}') Delete

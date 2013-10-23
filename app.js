@@ -64,12 +64,23 @@ app.post('/applicant', function(req, res){
 	res.send({success : 'Success!'});	
 });
 
+//deletes applicant
 app.post('/appdelete', function (req, res){
 	var deleted = req.body;
-	
-	console.log(deleted);
-	Applicant.findByIdAndRemove({id : deleted });
+	console.log("deleted", deleted);
+	Applicant.findByIdAndRemove(deleted._id, function(err, id){
+		console.log(err, id);
+		if(err){res.send('ERROR!')}
+		else{
+			res.send({success : 'deleted'});
+		}
+	});
+});
 
+//application renderer
+app.get('/:_.id', function (req, res){
+	
+	res.render('applicationview', {})
 })
 
 http.createServer(app).listen(app.get('port'), function(){
