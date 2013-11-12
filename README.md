@@ -56,3 +56,22 @@ show collections
 2. Create a route that renders your new jade file and passes applicant data to it. This route should look like "/:userid". In Express this route will take anything that is passed to it and the :userid is accessed by using req.params
 3. In your list that displays your applicants. Make each name a link.
 4. When you click on this link it should go to a route that looks something like "/5266ec1d3939f24149000001"
+
+Mongo Shell
+==============
+
+Part I
+-------
+1. Start Mongo on your machine sudo mongod
+2. In a seperate Terminal tab, start Mongo Shell mongo
+3. Create a Mongo Database called "RefactorU" use refactoru
+4. Create a collection called "students" db.createCollection('students')
+5. Run the command show collections to see that the collection was created
+6. Add 3 students to your students collection, make one of the students you. db.students.insert({name : "a students name"})
+7. Note that you will run db.students.insert({name : "a students name"}) 3 times
+8. Find the document that refers to you. db.students.findOne({name : "your name"})
+9. Change your name in the collection using db.students.update({name : "old name"}, {name : "your nickname"})
+10. Find all of the students in the collection using db.students.find()
+11. Remove yourself from the students collection using db.students.remove({name : "your name"})
+12. Remove all of the students from the students collection using db.students.remove()
+
